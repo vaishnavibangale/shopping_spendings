@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template, jsonify
+import json
 from utils import Shopping
 import config
 
