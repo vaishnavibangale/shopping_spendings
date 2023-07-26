@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Spendings Prediction</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background-image: url("https://www.coniq.com/wp-content/uploads/2022/01/Size-for-WP-Resources-Posts-844-x-532-4.png"); /* Replace "shopping-background.jpg" with your image file */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            max-width: 350px;
+            padding: 30px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+            background-size: cover;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Display gender buttons in one line */
+        .gender-labels {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .gender-labels label {
+            margin-right: 20px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #0e0c0c;
+            color: #f3ecec;
+            
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #525657;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Shopping Spendings Prediction</h1>
+        <form action="/predict_spendings" method="GET">
+            <label for="CustomerID">Customer ID:</label>
+            <input type="text" id="CustomerID" name="CustomerID" required>
+            <br>
+            <!-- Display gender buttons in one line -->
+            <div class="gender-labels">
+                <label for="Gender">Gender:</label>
+                <input type="radio" id="male" name="Gender" value="male" required>
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="Gender" value="female" required>
+                <label for="female">Female</label>
+            </div>
+            <br>
+            <label for="Age">Age:</label>
+            <input type="number" id="Age" name="Age" required>
+            <br>
+            <label for="Annual_Income">Annual Income:</label>
+            <input type="number" id="Annual_Income" name="Annual_Income" required>
+            <br>
+            <input type="submit" value="Predict Spendings">
+        </form>
+
+        <!-- Placeholder to display predicted charges -->
+        {% if prediction %}
+        <h2>Spending Score: {{ prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
